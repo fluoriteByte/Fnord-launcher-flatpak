@@ -1,0 +1,20 @@
+on:
+  push:
+    branches: [main]
+  pull_request:
+name: CI
+jobs:
+  flatpak:
+    name: "Flatpak"
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.10 #CHORE: update whenever SDK updates in upstream manifest
+      options: --privileged
+    steps:
+    - uses: actions/checkout@v4
+    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6 
+      with:
+        bundle: FnordLauncher.flatpak
+        manifest-path: xyz.fnordmc.FnordLauncher.yml
+        cache-key: flatpak-builder-${{ github.sha }}
+        gpg-sign: ${{ secrets.GPG_KEY }}
