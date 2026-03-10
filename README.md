@@ -1,4 +1,4 @@
-# org.prismlauncher.PrismLauncher
+# xyz.fnordmc.FnordLauncher
 
 A flatpak for [PrismLauncher](https://github.com/PrismLauncher/PrismLauncher)
 Please see upstream README for more information.
