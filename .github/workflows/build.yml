@@ -19,4 +19,4 @@ jobs:
         bundle: FnordLauncher.flatpak
         manifest-path: xyz.fnordmc.FnordLauncher.yml
         cache-key: flatpak-builder-${{ github.sha }}
-        gpg-sign: ${{ secrets.GPG_KEY }}
+#        gpg-sign: ${{ secrets.GPG_KEY }} #TODO: reenable once i know how tf to import the private key correctly
