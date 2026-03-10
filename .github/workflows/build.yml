@@ -14,9 +14,13 @@ jobs:
     - uses: actions/checkout@v6
       with:
         submodules: true
+    - name: Import GPG key
+      uses: crazy-max/ghaction-import-gpg@v7
+      with:
+        gpg_private_key: ${{ secrets.GPG_KEY }}
     - uses: flatpak/flatpak-github-actions/flatpak-builder@v6 
       with:
         bundle: FnordLauncher.flatpak
         manifest-path: xyz.fnordmc.FnordLauncher.yml
         cache-key: flatpak-builder-${{ github.sha }}
-#        gpg-sign: ${{ secrets.GPG_KEY }} #TODO: reenable once i know how tf to import the private key correctly
+        gpg-sign: ${{ secrets.GPG_KEY_ID }}
