@@ -28,7 +28,7 @@ jobs:
     - name: CNAME
       run: |
         echo fnordmc.xyz > CNAME
-  
+
     - name: Build flatpak
       uses: andyholmes/flatter@ff4ae4551df8167c4dabfb779e22e55d50652066
       with:
@@ -39,6 +39,7 @@ jobs:
         upload-pages-artifact: true
         upload-pages-includes: |
           CNAME
+          fnord.flatpakrepo
         gpg-sign: ${{ secrets.GPG_KEY_ID }}
         flatpak-builder-args: |
           --install-deps-from=flathub
