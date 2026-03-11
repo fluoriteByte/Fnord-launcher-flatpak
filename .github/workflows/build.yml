@@ -36,7 +36,7 @@ jobs:
             xyz.fnordmc.FnordLauncher.yml
         arch: ${{ matrix.arch }}
         upload-bundles: true
-        upload-pages-artifact: ${{ matrix.arch == 'aarch64' }}
+        upload-pages-artifact: true
         upload-pages-includes: |
           CNAME
         gpg-sign: ${{ secrets.GPG_KEY_ID }}
